@@ -1,2 +1,25 @@
 node_modules/
 .build
+build/
+dist/   
+.env
+.DS_Store
+.vscode/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+.idea/
+*.log
+.cache/
+.next/
+out/
+.svelte-kit/
+
+# MacOS files
+._**
+.Spotlight-V100 
+.Trashes
+.DocumentRevisions-V100
