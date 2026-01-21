@@ -290,7 +290,7 @@ const Page = () => {
     fetchProductDetails();
   }, [id]);
 
-  console.log("LLLLLLL::=>", selectedCategory?.name, selectedThickness?.hight, selectedSize, price, finalPrice)
+  // console.log("LLLLLLL::=>", selectedCategory?.name, selectedThickness?.hight, selectedSize, price, finalPrice)
 
   useEffect(() => {
     if (product) {
@@ -331,13 +331,13 @@ const Page = () => {
       const calculatedPrice = calculateFoamPrice(
         selectedSize,
         selectedThickness?.hight,
-        product.price // foam rate
+        product?.price // foam rate
       );
 
       const calculatedFinalPrice = calculateFoamPrice(
         selectedSize,
         selectedThickness?.hight,
-        product.finalPrice // foam rate
+        product?.finalPrice // foam rate
       );
       setPrice(calculatedPrice);
       setFinalPrice(calculatedFinalPrice);
@@ -345,7 +345,7 @@ const Page = () => {
   }, [selectedSize, selectedThickness]);
 
   if (loading) return <ProductDetailsSkeleton />;
-  console.log("XXXX::=>", product)
+  // console.log("XXXX::=>", product)
   return (
     <>
       <nav aria-label="breadcrumb" className="pretty-breadcrumb">
@@ -529,7 +529,7 @@ const Page = () => {
                               checked={selectedThickness?.hight === item?.hight}
                               onChange={() => setSelectedThickness(item)}
                             />
-                            {item?.hight}"
+                            {`${item?.hight}"`}
                           </label>
                         ))}
                       </div>

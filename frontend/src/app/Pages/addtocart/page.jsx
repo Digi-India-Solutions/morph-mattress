@@ -20,7 +20,7 @@ const Cart = () => {
   useEffect(() => {
     calculateTotals();
   }, [items]);
-  console.log("XXXX::>=>", items)
+  // console.log("XXXX::>=>", items)
   const { user, loading } = useSelector((state) => state.auth);
   const handleDecrease = async (productId, quantity) => {
     if (quantity === 1) return;

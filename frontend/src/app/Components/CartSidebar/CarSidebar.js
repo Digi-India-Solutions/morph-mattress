@@ -108,7 +108,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
     return acc + price * item?.quantity;
   }, 0);
 
-  console.log("DDD::=>", items)
+  // console.log("DDD::=>", items)
   return (
     <AnimatePresence>
       {isOpen && (

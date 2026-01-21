@@ -30,7 +30,7 @@ export default function ProfilePageContent() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -66,17 +66,17 @@ export default function ProfilePageContent() {
 
   const handleLogout = async () => {
     try {
-   const response =   await axiosInstance.get("/api/v1/auth/logout");
-   if(response.status===200){
-      dispatch(resetAuthState());
-      dispatch(resetCartState());
-      dispatch(resetWishlistState());
-      toast.success("Logged out successfully");
-   }
+      const response = await axiosInstance.get("/api/v1/auth/logout");
+      if (response.status === 200) {
+        dispatch(resetAuthState());
+        dispatch(resetCartState());
+        dispatch(resetWishlistState());
+        toast.success("Logged out successfully");
+      }
       router.push("/");
     } catch (error) {
       console.log("Error logging out:", error);
-      toast.error( error?.response?.data?.message || "Failed to log out. Please try again.");
+      toast.error(error?.response?.data?.message || "Failed to log out. Please try again.");
     }
   };
   const triggerFileInput = () => {
@@ -113,7 +113,7 @@ export default function ProfilePageContent() {
       toast.error(
         error?.response?.data?.message || "Failed to fetch profile details."
       );
-      
+
     }
   };
 
@@ -157,33 +157,30 @@ export default function ProfilePageContent() {
         <div className="row">
           <div className="mobile-top-nav top-0 z-3">
             <div
-              className={`inner-top-bar ${
-                activeTab === "profile"
+              className={`inner-top-bar ${activeTab === "profile"
                   ? "btn-light text-dark"
                   : "btn-outline-light"
-              }`}
+                }`}
               onClick={() => setActiveTab("profile")}
             >
               <FaUser />
               Profile
             </div>
             <div
-              className={`inner-top-bar ${
-                activeTab === "orders"
+              className={`inner-top-bar ${activeTab === "orders"
                   ? "btn-light text-dark"
                   : "btn-outline-light"
-              }`}
+                }`}
               onClick={() => setActiveTab("orders")}
             >
               <FaShoppingBag />
               Orders
             </div>
             <div
-              className={`inner-top-bar ${
-                activeTab === "address"
+              className={`inner-top-bar ${activeTab === "address"
                   ? "btn-light text-dark"
                   : "btn-outline-light"
-              }`}
+                }`}
               onClick={() => setActiveTab("address")}
             >
               <FaMapMarkerAlt />
@@ -228,18 +225,16 @@ export default function ProfilePageContent() {
                   onClick={() => setActiveTab("profile")}
                 >
                   <a
-                    className={`nav-link ${
-                      activeTab === "profile" ? "active" : ""
-                    }`}
+                    className={`nav-link ${activeTab === "profile" ? "active" : ""
+                      }`}
                   >
                     <FaUser /> Profile Info
                   </a>
                 </li>
                 <li className="nav-item" onClick={() => setActiveTab("orders")}>
                   <a
-                    className={`nav-link ${
-                      activeTab === "orders" ? "active" : ""
-                    }`}
+                    className={`nav-link ${activeTab === "orders" ? "active" : ""
+                      }`}
                   >
                     <FaShoppingBag /> Orders
                   </a>
@@ -249,9 +244,8 @@ export default function ProfilePageContent() {
                   onClick={() => setActiveTab("address")}
                 >
                   <a
-                    className={`nav-link ${
-                      activeTab === "address" ? "active" : ""
-                    }`}
+                    className={`nav-link ${activeTab === "address" ? "active" : ""
+                      }`}
                   >
                     <FaCog /> Settings
                   </a>
@@ -332,13 +326,14 @@ const Address = ({ name, phone, address, pincode, city }) => {
 
   useEffect(() => {
     setFormData({
-      name: name,
-      phone: phone,
-      address: address,
-      pincode: pincode,
-      city: city,
+      name,
+      phone,
+      address,
+      pincode,
+      city,
     });
-  }, []);
+  }, [name, phone, address, pincode, city]);
+  
   return (
     <div className="container">
       <div className="card shadow p-4 mb-5">
